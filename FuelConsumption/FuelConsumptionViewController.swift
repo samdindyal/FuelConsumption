@@ -23,6 +23,11 @@ class FuelConsumptionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        distanceField.resignFirstResponder()
+        fuelField.resignFirstResponder()
+    }
+    
     var distanceTravelled:Float = 0.0
     var fuelConsumed:Float      = 0.0
     var result: Float           = 0.0
@@ -62,7 +67,7 @@ class FuelConsumptionViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField,
-                   shouldChangeCharactersIn rang: NSRange,
+                   shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         
         let existingTextHasSeparator = textField.text?.range(of: ".")

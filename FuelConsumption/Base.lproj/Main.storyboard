@@ -16,14 +16,14 @@
             <objects>
                 <viewController title="Fuel Consumption" wantsFullScreenLayout="YES" id="ceb-4r-hbG" customClass="FuelConsumptionViewController" customModule="FuelConsumption" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x6x-r4-D5w">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1j-nh-cwn">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8bC-Xf-vdC">
-                                        <rect key="frame" x="0.0" y="8" width="375" height="850"/>
+                                        <rect key="frame" x="0.0" y="52" width="375" height="850"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance Travelled" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U06-qM-zH0">
                                                 <rect key="frame" x="28" y="16.000000000000004" width="318.66666666666669" height="50.333333333333343"/>
@@ -130,12 +130,16 @@
                                         <viewLayoutGuide key="safeArea" id="zPC-a3-ZbX"/>
                                     </view>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="3uY-5h-553"/>
                                     <constraint firstItem="8bC-Xf-vdC" firstAttribute="leading" secondItem="M1j-nh-cwn" secondAttribute="leading" id="czY-S6-qbW"/>
                                     <constraint firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="g4C-0x-CLF"/>
                                     <constraint firstItem="8bC-Xf-vdC" firstAttribute="top" secondItem="M1j-nh-cwn" secondAttribute="topMargin" id="p8G-fG-2zS"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="cpv-ov-DGY" appends="YES" id="xCE-Su-1LL"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -149,7 +153,6 @@
                         <viewLayoutGuide key="safeArea" id="MkU-Or-vCn"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="distanceField" destination="sZn-Vd-Edh" id="gKG-Bk-sZs"/>
                         <outlet property="fuelField" destination="Ghd-n7-d8v" id="OIO-gk-lqK"/>
@@ -157,6 +160,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNI-gk-sgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="cpv-ov-DGY">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="ceb-4r-hbG" id="jhb-ed-Sa3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="223.19999999999999" y="-22.167487684729064"/>
         </scene>
