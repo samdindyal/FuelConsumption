@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FuelConsumptionViewController: UIViewController {
+class FuelConsumptionViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var distanceField: UITextField!
     @IBOutlet var fuelField: UITextField!
@@ -59,5 +59,15 @@ class FuelConsumptionViewController: UIViewController {
         }
         
         return false
+    }
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn rang: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        let existingTextHasSeparator = textField.text?.range(of: ".")
+        let replacementTextHasSeparator = string.range(of: ".")
+        
+        return existingTextHasSeparator == nil || replacementTextHasSeparator == nil
     }
 }
