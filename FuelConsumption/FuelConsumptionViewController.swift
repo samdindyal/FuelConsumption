@@ -17,7 +17,7 @@ class FuelConsumptionViewController: UIViewController {
     @IBAction func textFieldChanged(_ sender: UITextField) {
         if calculate(),
             result != Float.nan {
-            resultLabel.text = "\(result)"
+            resultLabel.text = numberFormatter.string(from: NSNumber(value: result))
         } else {
             resultLabel.text = "???"
         }
@@ -26,6 +26,16 @@ class FuelConsumptionViewController: UIViewController {
     var distanceTravelled:Float = 0.0
     var fuelConsumed:Float      = 0.0
     var result: Float           = 0.0
+    
+    
+    let numberFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 2
+        return nf
+    }()
+    
     
     func fetchValues() -> Bool {
         
